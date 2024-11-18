@@ -13,14 +13,15 @@ type Props={
 }
 
 export const Product = ({title,category,system,description,infos,image}:Props) => (
-  <Card>
+    <Card>
     <img src={image} alt={title}/>
     <Infos>
-      {infos.map(info=><Tag key={info}>{info}</Tag>)}
+      {infos.map((info)=>(<Tag key={info}>{info}</Tag>))}
     </Infos>
     <Titulo>{title}</Titulo>
     <Tag>{category}</Tag>
     <Tag>{system}</Tag>
     <Descricao>{description}</Descricao>
   </Card>
+
 )
