@@ -4,15 +4,16 @@
 import {BrowserRouter, Routes,Route} from "react-router-dom"
 import Header from './components/Header'
 import { GlobalCss } from './styles'
-import { Home } from "./pages/Home"
-import { Categories } from "./pages/Categories"
+import {Provider} from "react-redux"
 import { Footer } from "./components/Footer"
 import { Rotas } from "./routes"
+import { store } from "./store"
 
 
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <GlobalCss />
       <div className="container">
@@ -21,6 +22,7 @@ function App() {
      <Rotas/>
      <Footer/>
     </BrowserRouter>
+    </Provider>
   )
 }
 

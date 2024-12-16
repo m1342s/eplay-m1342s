@@ -34,13 +34,14 @@ const mock: GalleryItem[] = [
 type Props = {
   defaultCover: string
   name: string
+  items:GalleryItem[]
 }
 interface ModalState extends GalleryItem {
   visible: boolean
 }
 
 /* eslint-disable prettier/prettier */
-export const Gallery = ({ defaultCover, name }: Props) => {
+export const Gallery = ({ defaultCover, name,items }: Props) => {
   const [modal, setModal] = useState<ModalState>({
     visible: false,
     type: 'image',
@@ -68,7 +69,7 @@ export const Gallery = ({ defaultCover, name }: Props) => {
     <>
       <Section title="Galeria" background="black">
         <Items>
-          {mock.map((media, index) => (
+          {items.map((media, index) => (
             <Item
               key={media.url}
               onClick={() => {

@@ -70,7 +70,9 @@ export const ModalContent = styled.div`
     margin-bottom: 24px;
     justify-content: space-between;
   }
-
+  > img{
+   width:100%;
+   }
   h4 {
     font-size: 18px;
     font-weight:bold;
