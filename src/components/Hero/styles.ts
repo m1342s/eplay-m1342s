@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const Banner=styled.div`
@@ -12,6 +12,11 @@ display:block;
 background-repeat:no-repeat;
 background-position:center;
 padding-top:16px;
+
+@media(max-width:${breakpoints.desktop}){
+background-size:cover;
+}
+
 
 &::after{
 position:absolute;

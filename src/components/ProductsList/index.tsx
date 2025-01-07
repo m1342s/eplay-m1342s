@@ -8,6 +8,7 @@ export type Props = {
   title: string
   background: 'gray' | 'black'
   games: Game[]
+  id?:string
 }
 
 export const formataPreco = (preco = 0): string => {
@@ -17,7 +18,7 @@ export const formataPreco = (preco = 0): string => {
   }).format(preco)
 }
 
-export const ProductsList = ({ title, background, games }: Props) => {
+export const ProductsList = ({ title, background, games,id }: Props) => {
   const getGameTags = (game: Game): string[] => {
     const tags: string[] = []
     if (game.release_date === '') {

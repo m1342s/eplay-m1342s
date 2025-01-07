@@ -8,6 +8,7 @@ import {Provider} from "react-redux"
 import { Footer } from "./components/Footer"
 import { Rotas } from "./routes"
 import { store } from "./store"
+import { Cart } from "./components/Cart"
 
 
 
@@ -21,6 +22,7 @@ function App() {
       </div>
      <Rotas/>
      <Footer/>
+     <Cart/>
     </BrowserRouter>
     </Provider>
   )

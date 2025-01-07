@@ -11,11 +11,10 @@ import { useEffect, useState } from 'react'
 import { Game } from '../../pages/Home'
 import { formataPreco } from '../ProductsList'
 import { useGetFeaturedGameQuery } from '../../services/api'
-
 export const Banner = () => {
    const {data:game,isLoading}=useGetFeaturedGameQuery()
   if (!game) {
-    return <h3>Carregan...</h3>
+    return <h3>Carregando...</h3>
   }
   return (
     <Image style={{ backgroundImage: `url(${game.media.cover})` }}>

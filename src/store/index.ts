@@ -8,7 +8,7 @@ import cartReducer from "./reducers/cart"
 
 export const store=configureStore({
     reducer:{
-      cartReducer,
+      cart:cartReducer,
       [api.reducerPath]:api.reducer
     },
     middleware:(getDefaultMiddleware)=>getDefaultMiddleware().concat(api.middleware)

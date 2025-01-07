@@ -1,11 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Banner } from '../../components/Banner'
 import { ProductsList } from '../../components/ProductsList'
-import resident from '../../images/resident.png'
-import diablo from '../../images/diablo.png'
-import starWars from '../../images/star_wars.png'
-import zelda from '../../images/zelda.png'
-import { useEffect, useState } from 'react'
+import {useGetOnSaleQuery,useGetSoonQuery} from "../../services/api"
 
 export interface GalleryItem {
   type: 'image' | 'video'
@@ -38,24 +34,18 @@ export type Game = {
 
 /* eslint-disable prettier/prettier */
 export const Home = () => {
-  const [promocoes, setPromocoes] = useState<Game[]>([])
-  const [emBreve, setEmBreve] = useState<Game[]>([])
+   const {data:onSaleGames}=useGetOnSaleQuery()
+   const {data:soonGames}=useGetSoonQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/promocoes')
-    .then(res=>res.json())
-    .then((res)=>setPromocoes(res))
-  }, [])
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/eplay/em-breve')
-    .then(res=>res.json())
-    .then((res)=>setEmBreve(res))
-  }, [])
-  return (
-    <>
-      <Banner />
-      <ProductsList games={promocoes} title="Promoções" background="gray" />
-      <ProductsList games={emBreve} title="Em breve" background="black" />
-    </>
-  )
+   if(onSaleGames && soonGames){
+    return (
+      <>
+        <Banner />
+        <ProductsList games={onSaleGames} title="Promoções" background="gray" id='on-sale' />
+        <ProductsList games={soonGames} title="Em breve" background="black" id='coming-soon' />
+      </>
+    )
+   }
+   return <h4>Carregando...</h4>
+  
 }

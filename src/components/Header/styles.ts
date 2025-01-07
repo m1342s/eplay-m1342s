@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from "styled-components";
-import { cores } from "../../styles";
+import { breakpoints, cores } from "../../styles";
 
 export const HeaderBar=styled.header`
 background-color:${cores.cinza};
@@ -22,6 +22,9 @@ display:flex;
 align-items:center;
 }
 }
+@media(max-width:${breakpoints.tablet}){
+display:none;
+}
 `
 export const Links=styled.ul`
 display:flex;
@@ -31,7 +34,7 @@ margin-left:40px;
 export const LinksItens=styled.li`
 margin-right:16px;
 `
-export const LinkCart=styled.a`
+export const CartButton=styled.a`
 display:flex;
 img {
 margin-left:16px;
